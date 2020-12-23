@@ -1,5 +1,7 @@
 # 去掉 console.log
+
 <!-- 运行 -->
+
 ## vue-cli2
 
 1.  项目 `build` 下面 `webpack.prod.config.js` 文件中:
@@ -8,20 +10,20 @@
 
 plugins: [
     new webpack.DefinePlugin({
-      'process.env': env
+      	'process.env': env
     }),
     new UglifyJsPlugin({
-      uglifyOptions: {
-        compress: {
-          warnings: false,
-          //drop_console  传递true以放弃对控制台的调用。*功能
-          drop_console: true,
-          // pure_funces 禁用console.log函数
-          pure_funcs: ['console.log']
-        }
-      },
-      sourceMap: config.build.productionSourceMap,
-      parallel: true
+		uglifyOptions: {
+			compress: {
+			warnings: false,
+			//drop_console  传递true以放弃对控制台的调用。*功能
+			drop_console: true,
+			// pure_funces 禁用console.log函数
+			pure_funcs: ['console.log']
+			}
+		},
+		sourceMap: config.build.productionSourceMap,
+		parallel: true
     }),
 
     ......
@@ -36,33 +38,33 @@ plugins: [
 
 1. 只有 `vue.config.js` 里配置.
 
-   ```javascript
+```javascript
    const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
    configureWebpack: {
      //注释console
-     optimization: {
-       minimizer: [
-         new UglifyJsPlugin({
-           uglifyOptions: {
-             compress: {
-               // warnings: false,
-               drop_console: false, //注释console
-               drop_debugger: false,
-               pure_funcs: ["console.log"], //移除console
-             },
-           },
-         }),
-       ];
-     }
+		optimization: {
+			minimizer: [
+				new UglifyJsPlugin({
+					uglifyOptions: {
+						compress: {
+							// warnings: false,
+							drop_console: false, //注释console
+							drop_debugger: false,
+							pure_funcs: ["console.log"], //移除console
+						},
+					},
+				}),
+			];
+		}
    }
-   ```
+```
 
 2. 需先安装 `uglifyjs-webpack-plugin` 插件
 
-   ```javascript
-   npm install uglifyjs-webpack-plugin --save-dev
-   ```
+```javascript
+   	npm install uglifyjs-webpack-plugin --save-dev
+```
 
 # vue 方法 ab 后调用 C
 
@@ -107,14 +109,14 @@ plugins: [
 
 ```javascript
 const store = new Vuex.Store({
-	state: {
-		products: [
-			{ name: "鼠标", price: 20 },
-			{ name: "键盘", price: 40 },
-			{ name: "耳机", price: 60 },
-			{ name: "显示屏", price: 80 },
-		],
-	},
+  state: {
+    products: [
+      { name: "鼠标", price: 20 },
+      { name: "键盘", price: 40 },
+      { name: "耳机", price: 60 },
+      { name: "显示屏", price: 80 },
+    ],
+  },
 });
 ```
 
@@ -185,6 +187,5 @@ const store = new Vuex.Store({
 使用
 
 ```javascript
-this.$store.commit('minusPrice', 2);
+this.$store.commit("minusPrice", 2);
 ```
-
