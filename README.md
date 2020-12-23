@@ -1,8 +1,8 @@
 # 去掉 console.log
-
+<!-- 运行 -->
 ## vue-cli2
 
-1.  项目 build 下面 webpack.prod.config.js 文件中:
+1.  项目 `build` 下面 `webpack.prod.config.js` 文件中:
 
 ```javascript
 
@@ -28,13 +28,13 @@ plugins: [
 ]
 ```
 
-注意：搜索 plugins 这个下面，UglifyJsPlugin 默认已经安装了,只需要添加 drop_console: true, pure_funcs: ['console.log']
+注意：搜索 `plugins` 这个下面，`UglifyJsPlugin` 默认已经安装了,只需要添加 `drop_console: true, pure_funcs: ['console.log']`
 
 代码参照如上即可, 我就是这样添加的
 
 ## vue-cli3
 
-1. 只有 vue.config.js 里配置.
+1. 只有 `vue.config.js` 里配置.
 
    ```javascript
    const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
@@ -58,7 +58,7 @@ plugins: [
    }
    ```
 
-2. 需先安装 uglifyjs-webpack-plugin 插件
+2. 需先安装 `uglifyjs-webpack-plugin` 插件
 
    ```javascript
    npm install uglifyjs-webpack-plugin --save-dev
@@ -66,10 +66,10 @@ plugins: [
 
 # vue 方法 ab 后调用 C
 
-promise 是什么？
+`promise` 是什么？
 1、主要用于异步计算
 2、可以将异步操作队列化，按照期望的顺序执行，返回符合预期的结果
-3、可以在对象之间传递和操作 promise，帮助我们处理队列
+3、可以在对象之间传递和操作 `promise`，帮助我们处理队列
 
 ```javascript
 	mounted() {
@@ -128,7 +128,7 @@ const store = new Vuex.Store({
 
 同步
 
-我将`getters`属性理解为所有组件的`computed`属性, 也就是计算属性. vuex 的官方文档也是说到可以将 getter 理解为 store 的计算属性, getters 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。
+我将`getters`属性理解为所有组件的`computed`属性, 也就是计算属性. `vuex` 的官方文档也是说到可以将 `getter` 理解为 `store` 的计算属性, `getters` 的返回值会根据它的依赖被缓存起来，且只有当它的依赖值发生了改变才会被重新计算。
 
 ```javascript
 //main.js
