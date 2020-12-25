@@ -236,6 +236,6 @@ const store = new Vuex.Store({
 使用
 
 ```javascript
-this.$store.dispatch('LogOut', {1,2}); //分发actions中的minusPriceAsync这个异步函数
+this.$store.dispatch('LogOut', {1,2}); //分发actions中的LogOut这个异步函数
 ```
 
