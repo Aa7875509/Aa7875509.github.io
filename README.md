@@ -189,3 +189,53 @@ const store = new Vuex.Store({
 ```javascript
 this.$store.commit("minusPrice", 2);
 ```
+
+## actions
+
+`actions` 类似于 `mutations`，不同在于：
+
+- `actions`提交的是`mutations`而不是直接变更状态
+- `actions`中可以包含异步操作, `mutations`中绝对不允许出现异步
+- `actions`中的回调函数的第一个参数是`context`, 是一个与`store`实例具有相同属性和方法的对象
+- 此时,我们在`store`中添加`actions`属性, 其中`minusPriceAsync`采用`setTimeout`来模拟异步操作,延迟2s执行 该方法用于异步改变我们刚才在`mutaions`中定义的`minusPrice
+
+```javascript
+//main.js
+const store = new Vuex.Store({
+	state:{
+		products:'',
+	},
+	getters:{ //添加getters
+		saleProducts: (state,val) => {
+			state.products = var
+		}
+	},
+    mutaions:{ //添加mutations
+        minusPrice ({commit,state}, val ) {
+			commit('saleProducts',val)//可修改getters.saleProducts
+        }
+  	},
+  	actions:{
+  	    // 登出
+        LogOut({ commit, state },{imgurl, name}) {
+            return new Promise((resolve, reject) => {
+                logout(state.token).then(() => {
+                    commit('SET_TOKEN', '')
+                    commit('SET_ROLES', [])
+                    removeToken()
+                    resolve()
+                }).catch(error => {
+                    reject(error)
+                })
+            })
+        },
+  	}
+})
+```
+
+使用
+
+```javascript
+this.$store.dispatch('LogOut', {1,2}); //分发actions中的minusPriceAsync这个异步函数
+```
+
