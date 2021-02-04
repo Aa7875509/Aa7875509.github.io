@@ -115,7 +115,7 @@ plugins: [
 
 
 
-# vux
+# vux简用
 
 
 
@@ -499,7 +499,7 @@ const welcome = `Hi ${test1} ${test2}`;
 
 
 
-## 12. 简写对象
+## 12. **简写对象**
 
 
 
